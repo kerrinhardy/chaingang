@@ -25,12 +25,15 @@ define("SHARED_PATH", PRIVATE_PATH . '/shared');
 // define("WWW_ROOT", '');
 // * Can dynamically find everything in URL up to "/public"
 $public_end = strpos($_SERVER['SCRIPT_NAME'], '/public') + 7;
-$doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
+$doc_root = 'https://' . $_SERVER['HTTP_HOST'] . '/public';
+//$doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
 define("WWW_ROOT", $doc_root);
 
 require_once('functions.php');
+require_once('status_error_functions.php');
 require_once('db_credentials.php');
 require_once('database_functions.php');
+require_once('validation_functions.php');
 
 // Load class definitions manually
 
@@ -51,4 +54,4 @@ function my_autoload($class) {
 spl_autoload_register('my_autoload');
 
 $database = db_connect();
-Bicycle::set_database($database);
+DatabaseObject::set_database($database);

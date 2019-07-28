@@ -11,7 +11,7 @@
 // 2. Unique credentials on development and production servers
 // 3. Unique credentials if working with multiple developers
 
-define("DB_SERVER", "localhost");
+define("DB_SERVER", "127.0.0.1");
 define("DB_USER", "root");
 define("DB_PASS", "");
 define("DB_NAME", "lynda-tutorial-1");
